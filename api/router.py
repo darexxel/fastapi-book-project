@@ -1,4 +1,3 @@
-
 # api/router.py
 from fastapi import APIRouter
 from api.routes import books, v1_books  # Import both route modules
