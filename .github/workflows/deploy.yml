@@ -18,4 +18,4 @@ jobs:
         uses: render-oss/github-action@v1
         with:
           service-id: ${{srv-culptgpu0jms73bptvp0}}
-          api-key: ${{ rnd_pzFhqNxEhEdOzODqXAszgXUqhFHf }}
+          api-key: ${{rnd_pzFhqNxEhEdOzODqXAszgXUqhFHf}}
