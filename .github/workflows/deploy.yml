@@ -17,5 +17,5 @@ jobs:
       - name: Deploy to Render
         uses: render-oss/github-action@v1
         with:
-          service-id: ${{ secrets.RENDER_SERVICE_ID }}
-          api-key: ${{ secrets.RENDER_API_KEY }}
+          service-id: ${{srv-culptgpu0jms73bptvp0}}
+          api-key: ${{ rnd_pzFhqNxEhEdOzODqXAszgXUqhFHf }}
