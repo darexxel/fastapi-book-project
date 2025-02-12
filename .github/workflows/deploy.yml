@@ -22,18 +22,18 @@ jobs:
           envs: EC2_PUBLIC_IP  # Export EC2_PUBLIC_IP as environment variable for remote commands
           script: |
             echo "Pulling latest code from GitHub..."
-            cd /home/ubuntu/app
+            cd /home/ubuntu/app || exit
             git pull origin main
 
             echo "Building new Docker image..."
-            docker build -t fastapi-book-app .
+            docker build -t fastapi-book-app . || exit
 
             echo "Stopping and removing old container (if running)..."
-            docker stop fastapi-book-app-container || true # Ignore error if container doesn't exist
-            docker rm fastapi-book-app-container || true   # Ignore error if container doesn't exist
+            docker stop fastapi-book-app-container || true
+            docker rm fastapi-book-app-container || true
 
             echo "Running new Docker container..."
-            docker run -d --name fastapi-book-app-container -p 80:80 fastapi-book-app
+            docker run -d --name fastapi-book-app-container -p 80:80 fastapi-book-app || exit
 
             echo "Deployment complete!"
             echo "Application should be accessible at http://${{ env.EC2_PUBLIC_IP }}"
